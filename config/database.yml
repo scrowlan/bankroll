@@ -1,0 +1,34 @@
+# postgreSQL version 0.12.0
+#   brew install postgresql
+#
+#   Ensure the postgreSQL gem is defined in your Gemfile
+#   gem 'pg', '0.12.0'
+development:
+  adapter: postgresql
+  database: db/bankroll_dev
+  pool: 5
+  timeout: 5000
+  username: scottrowland
+  password: 
+  host: localhost
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  adapter: postgresql
+  database: db/bankroll_test
+  pool: 5
+  timeout: 5000
+  username: scottrowland
+  password:
+  host: localhost 
+
+production:
+  adapter: postgresql
+  database: db/bankroll_production
+  pool: 5
+  timeout: 5000
+  username: scottrowland
+  password: 
+  host: localhost
