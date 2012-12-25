@@ -11,8 +11,8 @@ describe "Static pages" do
 
   describe "Home page" do
     before { visit root_path }
-    let(:heading) { 'Poker Bankroll Tracker'}
-    let(:page_title) {'Home'}
+    let(:heading) { 'Poker Bankroll Tracker' }
+    let(:page_title) { 'Home' }
     
     it_should_behave_like "all static pages"
   end
