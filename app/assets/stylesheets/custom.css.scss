@@ -56,7 +56,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-	font-size: 3em;
+	font-size: 1.5em;
 	letter-spacing: -2px;
 	margin-bottom: 30px;
 	text-align: center;
@@ -69,6 +69,13 @@ h2 {
 	text-align: center;
 	font-weight: normal;
 	color: $grayLight;
+}
+
+h3 {
+	font-size: 1.3em;
+	letter-spacing: -1px;
+	font-weight: normal;
+	top-border: none;
 }
 
 P {
@@ -134,29 +141,6 @@ footer {
 	}
 }
 
-/* sidebar */
-aside {
-	section{
-		padding: 10px 0;
-		border-top: 1px solid $grayLighter;
-		&:first-child {
-			border: 0;
-			padding-top: 0;
-		}
-		span {
-			display: block;
-			margin-bottom: 3px;
-			line-height: 1;
-		}
-		h1 {
-			font-size: 1.6em;
-			text-align: left;
-			letter-spacing: -1px;
-			margin-bottom: 3px;
-		}
-	}
-}
-
 .gravatar {
 	float: left;
 	margin-right: 10px;
@@ -168,7 +152,7 @@ input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   padding: 10px;
-  /* height: auto !important; */
+  height: auto !important; 
   margin-bottom: 15px;
   @include box_sizing;
 }
@@ -192,7 +176,6 @@ input, textarea, select, .uneditable-input {
  aside {
    section {
      padding: 10px 0;
-     border-top: 1px solid $grayLighter;
      &:first-child {
        border: 0;
        padding-top: 0;
@@ -210,31 +193,30 @@ input, textarea, select, .uneditable-input {
        margin-top: 0px;
      }
    }
+	 .current-rolls {
+		 border: 1px solid #e8e8e8;
+	 }
+	 h3 {
+		 text-align: center;
+	 }
  }
- 
- /* forms */
-
- input, textarea, select, .uneditable-input {
-   border: 1px solid #bbb;
-   width: 100%;
-   padding: 10px;
-   margin-bottom: 15px;
-   @include box_sizing;
- }
-
- input {
-   height: auto !important;
- }
- 
- #error_explanation {
-   color: #f00;
-   ul {
-     list-style: none;
-     margin: 0 0 18px 0;
-   }
- }
-
- .field_with_errors {
-   @extend .control-group;
-   @extend .error;
-  }
+ 	
+	/* rolls */
+	
+.rolls {
+	list-style: none;
+	  margin: 10px 0 0 0;
+	  li {
+	    padding: 10px 0;
+	    border-top: 1px solid #e8e8e8;
+	  }
+	}
+	.amount {
+	  display: block;
+	}
+	aside {
+	  textarea {
+	    height: 100px;
+	    margin-bottom: 5px;
+	  }
+}

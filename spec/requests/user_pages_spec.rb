@@ -6,10 +6,16 @@ describe "User pages" do
 
   describe "profile page" do
     let(:user) { FactoryGirl.create(:user) }
+    let!(:r1) { FactoryGirl.create(:roll, user: user, amount: 123.34) }
+    
     before { visit user_path(user) }
 
     it { should have_selector('h1',    text: user.first_name) }
     it { should have_selector('title', text: user.first_name) }
+    
+    describe "rolls" do
+      it { should have_content(r1.amount) }
+    end
   end
 
   describe "signup page" do
@@ -52,6 +58,42 @@ describe "User pages" do
         it { should have_selector('div.alert.alert-success', text: 'Welcome') }
         it { should have_link('Sign Out') }
       end
+      
+    end
+  end
+  
+  describe "edit" do
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      sign_in user
+      visit edit_user_path(user)
+    end
+      
+    describe "page" do
+      it { should have_selector('h1', text: "Update your profile") }
+      it { should have_selector('title', text: "Edit User") }
+    end
+    
+    describe "with valid information" do
+      let(:new_first_name) { "New" }
+      let(:new_last_name) { "Name" }
+      let(:new_email) { "new@example.com" }
+     
+      before do
+        fill_in "First Name", with: new_first_name
+        fill_in "Last Name", with: new_last_name
+        fill_in "Email", with: new_email
+        fill_in "Password", with: user.password
+        fill_in "Confirmation", with: user.password
+        click_button "Save changes"
+      end
+      
+      it { should have_selector('title', text: new_first_name) }
+      it { should have_selector('div.alert.alert-success') }
+      it { should have_link('Sign Out') }
+      specify { user.reload.first_name.should == new_first_name }
+      specify { user.reload.last_name.should == new_last_name }
+      specify { user.reload.email.should == new_email }
       
     end
   end

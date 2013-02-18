@@ -6,4 +6,14 @@ FactoryGirl.define do
     password "foobar"
     password_confirmation "foobar"
   end
+  
+  factory :roll do
+    amount 123.45
+    user
+  end
+  
+  factory :game do
+    amount 12.32
+    user
+  end
 end
