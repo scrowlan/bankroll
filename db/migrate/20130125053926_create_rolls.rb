@@ -6,6 +6,6 @@ class CreateRolls < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :roll, [:user_id, :created_at]
+#    add_index :roll, [:user_id, :created_at]
   end
 end

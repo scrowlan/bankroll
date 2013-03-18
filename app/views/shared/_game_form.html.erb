@@ -1,0 +1,9 @@
+<%= form_for(@game) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+    <%= f.text_field :buy_in, placeholder: "Enter buy in" %>
+    <%= f.text_field :cash_out, placeholder: "Enter cash out" %>
+  </div>
+  <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+<% end %>
+

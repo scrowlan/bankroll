@@ -193,9 +193,6 @@ input, textarea, select, .uneditable-input {
        margin-top: 0px;
      }
    }
-	 .current-rolls {
-		 border: 1px solid #e8e8e8;
-	 }
 	 h3 {
 		 text-align: center;
 	 }
@@ -219,4 +216,39 @@ input, textarea, select, .uneditable-input {
 	    height: 100px;
 	    margin-bottom: 5px;
 	  }
+}
+
+	/* games */
+	
+.games {
+	list-style: none;
+	  margin: 10px 0 0 0;
+	  li {
+	    padding: 10px 0;
+	    border-top: 1px solid #e8e8e8;
+	  }
+	}
+	aside {
+	  textarea {
+	    height: 100px;
+	    margin-bottom: 5px;
+	  }
+}
+
+/* tables */
+table {
+	width: 100%;
+}
+td {
+	padding: 3px;
+	text-align: center;
+}
+.current-rolls {
+ border: 1px solid #e8e8e8;
+}
+.current-games {
+	border: 1px solid #e8e8e8;
+}
+.amount {
+  display: block;
 }

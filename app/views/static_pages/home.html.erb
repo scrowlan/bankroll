@@ -6,10 +6,15 @@
 			<section class="span2">
 				<%= render 'shared/user_info' %>
 				<%= render 'shared/roll_form' %>
+				<%= render 'shared/game_form' %>
 			</section>
-			<section class="span2 current-rolls">
-				<%= render 'shared/roll_info' %>
 		</aside>
+		<section class="span2 current-rolls">
+			<%= render 'shared/roll_info' %>
+		</section>
+		<section class="span2 current-games">
+			<%= render 'shared/game_info' %>
+		</section>
 	</div>
 <% else %>
 	<div class="center hero-unit">

@@ -11,13 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130218164356) do
+ActiveRecord::Schema.define(:version => 20130222040236) do
 
   create_table "games", :force => true do |t|
     t.decimal  "amount",     :precision => 10, :scale => 2
     t.integer  "user_id"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
+    t.decimal  "buy_in",     :precision => 10, :scale => 2
+    t.decimal  "cash_out",   :precision => 10, :scale => 2
+    t.decimal  "difference", :precision => 10, :scale => 2
+    t.time     "start_time"
+    t.time     "end_time"
+    t.integer  "players"
   end
 
   create_table "rolls", :force => true do |t|
@@ -25,14 +31,6 @@ ActiveRecord::Schema.define(:version => 20130218164356) do
     t.integer  "user_id"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
-  end
-
-  create_table "transactions", :force => true do |t|
-    t.date     "date"
-    t.string   "amount"
-    t.string   "memo"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

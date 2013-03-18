@@ -1,4 +1,5 @@
 <% provide(:title, @user.first_name) %>
+
 <div class="row">
 	<aside class="span2">
 		<section>
@@ -9,12 +10,26 @@
 			<%= @user.email %>
 		</section>
 	</aside>
+	
 	<div class="span2">
+		
 		<% if @user.rolls.any? %>
 		<h3>Bankrolls</h3>
 		<ol class="rolls">
 			<%= render @rolls %>
 		</ol>
 		<% end %> 
+	</div>
+	
+	<div class="span2">
+		
+		<% if @games.present? %>
+		<h3>Recent Sessions:</h3>
+		<ol class="games amount">
+			<%= render @games %>
+		</ol>
+		<% end %> 
+	</div>
+		
 	</div>
 </div>

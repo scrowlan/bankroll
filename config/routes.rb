@@ -6,6 +6,7 @@ Bankroll::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :rolls, only: [:create, :destroy]
+  resources :games, only: [:create, :destroy]
   
   root to: 'static_pages#home'
   

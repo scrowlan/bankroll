@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @rolls = @user.rolls
+    @games = @user.games
   end
   
   def new
