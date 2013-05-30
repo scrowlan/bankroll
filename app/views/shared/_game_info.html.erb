@@ -1,18 +1,29 @@
 <div class="row">
-	<div class="span2">
+	<div class="span3">
 		<% if current_user.games.any? %>
 		<h3>Recent Sessions:</h3>
-		<ol class="games amount">
-			<% current_user.games.each do |games| %>
-			<table>
-				<tr>
-					<td><%= games.buy_in %></td>
-					<td><%= games.cash_out %></td>
-					<td><%= games.difference %></td>
-				</tr>
+			<table class="games">
+				<thead>
+					<tr>
+						<th>Buy-In</th>
+						<th>Cash-Out</th>
+						<th>Difference</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% current_user.games.each do |games| %>		
+					<tr>
+						<td><%= number_to_currency(games.buy_in) %></td>
+						<td><%= number_to_currency(games.cash_out) %></td>
+						<td><%= number_to_currency(games.difference) %></td>
+					</tr>
+					<% end %>
+					<tr>
+						<td colspan="2">Total Difference:</td>
+						<td><%= number_to_currency(@total_difference)%></td>
+					</tr>
+				</tbody>
 			</table>
-			<% end %>
-		</ol>
-		<% end %> 
+			<% end %> 
 	</div>
 </div>

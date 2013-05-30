@@ -3,12 +3,16 @@ class GamesController < ApplicationController
   before_filter :correct_user, only: :destroy
   
   def list
-    @games = Game.find(:all)
+    @games = Game.find(params[:id])
+  end
+  
+  def index
+    @games = Game.find(params[:id])
   end
   
   def show
     @game = Game.find(params[:id])
-  end
+  end 
   
   def create
     @game = current_user.games.build(params[:game])

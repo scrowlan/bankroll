@@ -1,8 +1,9 @@
 class StaticPagesController < ApplicationController
   def home
     if signed_in?
-      @roll = current_user.rolls.build
-      @game = current_user.games.build
+      @roll = Roll.new
+      @game = Game.new
+      @total_difference = Game.calculate(:sum, :difference)
     end
   end
 

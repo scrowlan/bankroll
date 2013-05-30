@@ -1,6 +1,15 @@
 class RollsController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
   before_filter :correct_user, only: :destroy
+  before_filter :roll_difference
+  
+  def list
+    @rolls = Roll.find(:all)
+  end
+  
+  def show
+    @roll = Roll.find(params[:id])
+  end
   
   def create
     @roll = current_user.rolls.build(params[:roll])
@@ -16,11 +25,12 @@ class RollsController < ApplicationController
     @roll.destroy
     redirect_to root_url
   end
-  
+
   private
   
   def correct_user
     @roll = current_user.rolls.find_by_id(params[:id])
     redirect_to root_url if @roll.nil?
   end
+  
 end

@@ -3,7 +3,16 @@
 		<% if current_user.rolls.any? %>
 		<h3>Current Bankrolls:</h3>
 		<ol class="rolls amount">
-			<%= render current_user.rolls %>
+			<% current_user.rolls.each do |roll| %>
+			<table>
+				<tr>
+
+					<td><%= number_to_currency(roll.amount + @total_difference) %></td>
+					<% #roll.site_name %>
+					<td><%= link_to "Delete", roll, :method => :delete %></td>
+				</tr>
+			</table>
+			<% end %>
 		</ol>
 		<% end %> 
 	</div>

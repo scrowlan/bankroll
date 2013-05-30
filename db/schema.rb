@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130222040236) do
+ActiveRecord::Schema.define(:version => 20130421200036) do
 
   create_table "games", :force => true do |t|
     t.decimal  "amount",     :precision => 10, :scale => 2
@@ -24,13 +24,17 @@ ActiveRecord::Schema.define(:version => 20130222040236) do
     t.time     "start_time"
     t.time     "end_time"
     t.integer  "players"
+    t.integer  "roll_id"
   end
+
+  add_index "games", ["roll_id"], :name => "index_games_on_roll_id"
 
   create_table "rolls", :force => true do |t|
     t.decimal  "amount",     :precision => 10, :scale => 2
     t.integer  "user_id"
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
+    t.string   "site_name"
   end
 
   create_table "users", :force => true do |t|

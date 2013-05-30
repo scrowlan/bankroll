@@ -31,6 +31,9 @@ textarea {
 	}
 }
 
+.span2 {
+	margin-right: 10px;
+}
 /* mixins, variables, etc */
 
 @mixin box_sizing {
@@ -76,6 +79,7 @@ h3 {
 	letter-spacing: -1px;
 	font-weight: normal;
 	top-border: none;
+	text-align: center;
 }
 
 P {
@@ -150,7 +154,7 @@ footer {
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
+  width: 80%;
   padding: 10px;
   height: auto !important; 
   margin-bottom: 15px;
@@ -184,6 +188,7 @@ input, textarea, select, .uneditable-input {
        display: block;
        margin-bottom: 3px;
        line-height: 1;
+			 margin-right: 10px;
      }
      h1 {
        font-size: 1.4em;
@@ -204,7 +209,7 @@ input, textarea, select, .uneditable-input {
 	list-style: none;
 	  margin: 10px 0 0 0;
 	  li {
-	    padding: 10px 0;
+	    padding: 10px 10px;
 	    border-top: 1px solid #e8e8e8;
 	  }
 	}
