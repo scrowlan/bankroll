@@ -5,11 +5,7 @@ class Game < ActiveRecord::Base
   before_create :calculate_difference
   
   validates :user_id, presence: true
-  
-  def total_difference
-    Game.calculate(:sum, :difference)
-  end
-  
+
   def calculate_difference
     self.difference = cash_out.to_f - buy_in.to_f
   end

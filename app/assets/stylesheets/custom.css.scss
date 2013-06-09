@@ -6,6 +6,7 @@ $grayMediumLight: #eaeaea;
 
 .span4 {
 	width: 300px;
+	margin-left: 5px;
 }
 
 html {
@@ -29,6 +30,10 @@ textarea {
 	h1 {
 		margin-bottom: 10px;
 	}
+}
+
+.left {
+	text-align: left;
 }
 
 .span2 {
@@ -244,6 +249,7 @@ input, textarea, select, .uneditable-input {
 table {
 	width: 100%;
 }
+
 td {
 	padding: 3px;
 	text-align: center;
@@ -257,3 +263,8 @@ td {
 .amount {
   display: block;
 }
+
+.roll {
+	display: block;
+}
+

@@ -2,7 +2,7 @@
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
     <%= f.text_field :amount, placeholder: "Enter starting roll" %>
-		<!-- <%= f.text_field :site_name, placeholder: "Enter roll name" %> -->
+		<%= f.text_field :site_name, placeholder: "Enter roll name" %>
   </div>
   <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
 <% end %>

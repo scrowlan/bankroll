@@ -4,5 +4,5 @@ class Roll < ActiveRecord::Base
   has_many :games
   
   validates :user_id, presence: true
-  
+    
 end

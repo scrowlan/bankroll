@@ -1,14 +1,17 @@
 class RollsController < ApplicationController
   before_filter :signed_in_user, only: [:create, :destroy]
   before_filter :correct_user, only: :destroy
-  before_filter :roll_difference
   
   def list
-    @rolls = Roll.find(:all)
+    @roll = current_user.rolls.find(params[:id])
   end
   
   def show
-    @roll = Roll.find(params[:id])
+    @roll = current_user.rolls.find(params[:id])
+  end
+  
+  def index
+    @roll = current_user.rolls.find(params[:id])
   end
   
   def create
