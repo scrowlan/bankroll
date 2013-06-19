@@ -9,4 +9,5 @@ class Game < ActiveRecord::Base
   def calculate_difference
     self.difference = cash_out.to_f - buy_in.to_f
   end
+  
 end

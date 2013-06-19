@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
     if signed_in?
       @roll = Roll.new
       @game = Game.new
-      @total_difference = Game.calculate(:sum, :difference)
+      @total_difference_by_game = Game.sum(:difference, :group => :roll_id)
     end
   end
 
