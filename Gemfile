@@ -5,6 +5,8 @@ gem 'bootstrap-sass', '2.0.4'
 gem 'sqlite3', '1.3.5'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'money-rails'
+gem 'time_difference', '0.2.0'
+gem 'bootstrap-datepicker-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
-  attr_accessible :buy_in, :cash_out, :difference, :roll_id
+  attr_accessible :buy_in, :cash_out, :difference, :roll_id, :minutes_played, :date_played
   belongs_to :user
   belongs_to :roll
   before_create :calculate_difference
