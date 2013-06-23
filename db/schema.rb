@@ -14,17 +14,17 @@
 ActiveRecord::Schema.define(:version => 20130622044035) do
 
   create_table "games", :force => true do |t|
-    t.decimal  "amount",         :precision => 10, :scale => 2
+    t.decimal  "amount",       :precision => 10, :scale => 2
     t.integer  "user_id"
-    t.datetime "created_at",                                    :null => false
-    t.datetime "updated_at",                                    :null => false
-    t.decimal  "buy_in",         :precision => 10, :scale => 2
-    t.decimal  "cash_out",       :precision => 10, :scale => 2
-    t.decimal  "difference",     :precision => 10, :scale => 2
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
+    t.decimal  "buy_in",       :precision => 10, :scale => 2
+    t.decimal  "cash_out",     :precision => 10, :scale => 2
+    t.decimal  "difference",   :precision => 10, :scale => 2
     t.integer  "players"
     t.integer  "roll_id"
-    t.integer  "minutes_played"
     t.date     "date_played"
+    t.decimal  "hours_played", :precision => 2,  :scale => 4
   end
 
   add_index "games", ["roll_id"], :name => "index_games_on_roll_id"

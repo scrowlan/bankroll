@@ -9,6 +9,7 @@
 						<th>Buy-In</th>
 						<th>Cash-Out</th>
 						<th>Difference</th>
+						<th>Hourly</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -18,6 +19,7 @@
 						<td><%= number_to_currency(games.buy_in) %></td>
 						<td><%= number_to_currency(games.cash_out) %></td>
 						<td><%= number_to_currency(games.difference) %></td>
+						<td><%= number_to_currency(games.amount) %></td>
 					</tr>
 					<% end %>
 				</tbody>

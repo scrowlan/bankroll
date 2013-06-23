@@ -5,7 +5,8 @@
     <%= f.text_field :buy_in, placeholder: "Enter buy in" %>
     <%= f.text_field :cash_out, placeholder: "Enter cash out" %>
 		<%= f.collection_select :roll_id, Roll.find_all_by_user_id(current_user.id), :id, :site_name, :prompt => "Select your site" %>
-		<%= f.select "minutes_played", options_for_select((0..120).step(5), 60), placeholder: "Minutes Played"%>
+		<%= f.text_field :h_played, placeholder: "Hours played" %>
+		<%= f.text_field :m_played, placeholder: "Minutes played" %>
   </div>
   <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
 <% end %>

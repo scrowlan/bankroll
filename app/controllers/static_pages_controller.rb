@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
       @roll = Roll.new
       @game = Game.new
       @total_difference_by_game = Game.sum(:difference, :group => :roll_id)
+      @total_hours_by_game = Game.sum(:hours_played, :group => :roll_id)
     end
   end
 

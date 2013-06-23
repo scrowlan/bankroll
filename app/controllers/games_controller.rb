@@ -23,7 +23,7 @@ class GamesController < ApplicationController
       render 'static_pages/home'
     end
   end
-  
+
   def destroy
     @game.destroy
     redirect_to root_url
