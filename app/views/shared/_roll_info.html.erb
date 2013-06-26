@@ -11,10 +11,16 @@
 				<% @id = roll.id%>
 				<% @td = @total_difference_by_game.fetch(@id) { |roll_id, value| puts "#{value}" } %>
 				<% @thr = @total_hours_by_game.fetch(@id) { |roll_id, value| puts "#{value}" } %>
+				<% if roll.games.any? %>
 				<% @hourly = @td / @thr %>
 						<td><%= number_to_currency(roll.amount + @td) %></td>
 						<td><%= number_to_currency(@hourly) %>
 						<td><%= link_to "Delete", roll, :method => :delete %></td>
+				<% else %>
+				<td><%= number_to_currency(roll.amount) %></td>
+				<td>No Games</td>
+				<td><%= link_to "Delete", roll, :method => :delete %></td>
+				<% end %>
 					</tr>
 				<% end %>
 				</tbody>
