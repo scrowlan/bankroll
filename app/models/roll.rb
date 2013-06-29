@@ -6,14 +6,19 @@ class Roll < ActiveRecord::Base
   validates :user_id, presence: true
   
   def tot_dif_by_game(id)
-    @total_difference_by_game = (Game.sum(:difference, :group => :roll_id)).fetch(id) { |roll_id, value| puts "#{value}" } 
+    self.total_difference_by_game = (Game.sum(:difference, :group => :roll_id)).fetch(id)
+  end
+  
+  def updated_bankroll(id)
+    @updated_bankroll = Roll.find_by_id(id).amount + @total_difference_by_game = (Game.sum(:difference, :group => :roll_id)).fetch(id)
   end
   
   def tot_hours_by_game(id)
-    @total_hours_by_game = (Game.sum(:hours_played, :group => :roll_id)).fetch(id) { |roll_id, value| puts "#{value}" }  
+    self.total_hours_by_game = (Game.sum(:hours_played, :group => :roll_id)).fetch(id)
   end
 
   def hourly_rate
+    @total_hours_by_game = (Game.sum(:hours_played, :group => :roll_id)).fetch(id)
     @hourly = @total_difference_by_game / @total_hours_by_game
   end
 

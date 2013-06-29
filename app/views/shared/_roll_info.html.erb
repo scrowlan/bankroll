@@ -9,9 +9,8 @@
 				<% current_user.rolls.each do |roll| %>
 				<tr><td colspan="2" class="left"><%= roll.site_name.capitalize %></td></tr>
 				<% @id = roll.id%>
-				<% roll.tot_hours_by_game(@id)%>
 				<% if roll.games.any? %>
-						<td><%= number_to_currency(roll.amount + roll.tot_dif_by_game(@id)) %></td>
+						<td><%= number_to_currency(roll.updated_bankroll(@id)) %></td>
 						<td><%= number_to_currency(roll.hourly_rate) %>
 						<td><%= link_to "Delete", roll, :method => :delete %></td>
 				<% else %>
