@@ -1,0 +1,6 @@
+<li>
+	<span class="content"><%= roll.amount %></span>
+	<% if current_user?(roll.user) %>
+	<%= link_to "delete", roll, method: :delete, data: { confirm: "You sure?"}, title: roll.amount %>
+	<% end %>
+</li>

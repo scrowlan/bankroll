@@ -1,0 +1,21 @@
+- provide(:title, 'Home')
+
+-if signed_in?
+	.row
+		%aside.span2
+			%section.span2
+				= render 'shared/user_info'
+				= render 'shared/roll_form'
+				= render 'shared/game_form'
+		%section.span2.current-rolls
+			= render 'shared/roll_info'
+		%section.span4.current-games
+			= render 'shared/game_info'
+- else
+	.center.hero-unit
+		%h1
+			Poker Bankroll Tracker
+		%h2
+			This is the home page for the <a href="#"> Poker Bankroll Tracker</a> application.
+		= link_to "Sign Up Now!", signup_path, class: "btn btn-large btn-primary"
+	

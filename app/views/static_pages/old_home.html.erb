@@ -1,0 +1,26 @@
+<% provide(:title, 'Home') %>
+
+<% if signed_in? %>
+	<div class="row">
+		<aside class="span2">
+			<section class="span2">
+				<%= render 'shared/user_info' %>
+				<%= render 'shared/roll_form' %>
+				<%= render 'shared/game_form' %>
+			</section>
+		</aside>
+		<section class="span2 current-rolls">
+			<%= render 'shared/roll_info' %>
+		</section>
+		<section class="span4 current-games">
+			<%= render 'shared/game_info' %>
+		</section>
+	</div>
+<% else %>
+	<div class="center hero-unit">
+		<h1>Poker Bankroll Tracker</h1>
+		<h2> This is the home page for the <a href="#"> Poker Bankroll Tracker</a> application.</h2>
+		<%= link_to "Sign Up Now!", signup_path, class: "btn btn-large btn-primary" %>
+	</div>
+<% end %>
+	

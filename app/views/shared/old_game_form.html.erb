@@ -1,0 +1,13 @@
+<%= form_for(@game) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+		<%= f.text_field :date_played, :class => 'datepicker', placeholder: "Session date", :format => "yyyy-mm-dd" %>
+    <%= f.text_field :buy_in, placeholder: "Enter buy in" %>
+    <%= f.text_field :cash_out, placeholder: "Enter cash out" %>
+		<%= f.collection_select :roll_id, Roll.find_all_by_user_id(current_user.id), :id, :site_name, :prompt => "Select your site" %>
+		<%= f.text_field :h_played, placeholder: "Hours played" %>
+		<%= f.text_field :m_played, placeholder: "Minutes played" %>
+  </div>
+  <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+<% end %>
+

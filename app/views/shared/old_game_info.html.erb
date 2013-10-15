@@ -1,0 +1,29 @@
+<div>
+	<div class="span4">
+		<% if current_user.games.any? %>
+		<h3>Recent Sessions:</h3>
+			<table class="games">
+				<thead>
+					<tr>
+						<th class="left">Site:</th>
+						<th>Buy-In</th>
+						<th>Cash-Out</th>
+						<th>Difference</th>
+						<th>Hourly</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% current_user.games.each do |games| %>		
+					<tr>
+						<td class="left"><%= games.roll.site_name.capitalize %></td>
+						<td><%= number_to_currency(games.buy_in) %></td>
+						<td><%= number_to_currency(games.cash_out) %></td>
+						<td><%= number_to_currency(games.difference) %></td>
+						<td><%= number_to_currency(games.amount) %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<% end %> 
+	</div>
+</div>

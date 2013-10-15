@@ -1,0 +1,4 @@
+%li
+  %span.content= roll.amount
+  - if current_user?(roll.user)
+    = link_to "delete", roll, method: :delete, data: { confirm: "You sure?"}, title: roll.amount

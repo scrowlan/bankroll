@@ -1,0 +1,20 @@
+%div
+  .span4
+    - if current_user.games.any?
+      %h3 Recent Sessions:
+      %table.games
+        %thead
+          %tr
+            %th.left Site:
+            %th Buy-In
+            %th Cash-Out
+            %th Difference
+            %th Hourly
+        %tbody
+          - current_user.games.each do |games|
+            %tr
+              %td.left= games.roll.site_name.capitalize
+              %td= number_to_currency(games.buy_in)
+              %td= number_to_currency(games.cash_out)
+              %td= number_to_currency(games.difference)
+              %td= number_to_currency(games.amount)
