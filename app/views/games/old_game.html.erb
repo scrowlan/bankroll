@@ -1,4 +1,0 @@
-%li
-	%span.content= game.amount
-	- if current_user?(game.user)
-	= link_to "delete", game, method: :delete, data: { confirm: "You sure?"}, title: game.amount
