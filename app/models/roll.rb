@@ -8,6 +8,8 @@ class Roll < ActiveRecord::Base
   def tot_dif_by_game(id)
     self.total_difference_by_game = (Game.sum(:difference, :group => :roll_id)).fetch(id)
   end
+
+  
   
   def tot_hours_by_game(id)
     self.total_hours_by_game = (Game.sum(:hours_played, :group => :roll_id)).fetch(id)
