@@ -1,24 +1,24 @@
-.row
-  .span2
-    - if current_user.rolls.any?
-      %h3 Current Bankrolls:
-      %ol.rolls.amount
-        %table
-          %tbody
-            %tr
-              - current_user.rolls.each do |roll|
-                %tr
-                  %td.left{:colspan => "2"}= roll.site_name.capitalize
-                - @id = roll.id
-                - if roll.games.any?
-                  %td= number_to_currency(roll.updated_bankroll(@id))
-                  %td
-                    = number_to_currency(roll.hourly_rate)
-                    %td= link_to "Delete", roll, :method => :delete
-                - else
-                  %td= number_to_currency(roll.amount)
-                  %td No Games
-                  %td= link_to "Delete", roll, :method => :delete
-                %tr
-                  %td.left Total:
-                  %td
+.span4
+  - if current_user.rolls.any?
+    %h3 Current Bankrolls:
+    %ol.rolls.amount
+      %table
+        %tbody
+          %tr
+            - current_user.rolls.each do |roll|
+              %tr
+                %td.left{:colspan => "2"}= roll.site_name.capitalize
+              %tr
+                %td Bankroll:
+                %td Hourly:
+                %td ROI:
+              - @id = roll.id
+              - if roll.games.any?
+                %td= number_to_currency(roll.updated_bankroll(@id))
+                %td= number_to_currency(roll.hourly_rate)
+                %td= number_to_percentage(roll.roi_by_game, :precision => 1)
+                %td= link_to "Delete", roll, :method => :delete
+              - else
+                %td= number_to_currency(roll.amount)
+                %td No Games
+                %td= link_to "Delete", roll, :method => :delete
