@@ -13,7 +13,7 @@
         %tbody
           - current_user.games.each do |games|
             %tr
-              %td.left= games.roll.site_name.capitalize
+              %td.left= link_to games.roll.site_name.capitalize, games
               %td= number_to_currency(games.buy_in)
               %td= number_to_currency(games.cash_out)
               %td= number_to_currency(games.difference)

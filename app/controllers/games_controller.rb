@@ -13,6 +13,10 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
   end 
+
+  def edit
+    @game = Game.find(params[:id])
+  end
   
   def create
     @game = current_user.games.build(params[:game])
