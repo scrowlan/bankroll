@@ -17,11 +17,21 @@ class GamesController < ApplicationController
   def edit
     @game = Game.find(params[:id])
   end
+
+  def update
+    @game = Game.find(params[:id])
+    if @game.update_attributes params[:game]
+      flash[:success] = "Game Updated!"
+      redirect_to root_url
+    else
+      render 'edit'
+    end
+  end
   
   def create
     @game = current_user.games.build(params[:game])
     if @game.save
-      flash[:success] = "Session Created!"
+      flash[:success] = "Game Created!"
       redirect_to root_url
     else
       render 'static_pages/home'
@@ -32,14 +42,6 @@ class GamesController < ApplicationController
     @game.destroy
     redirect_to root_url
   end
-  
-  # def update
-  #   if @game.update_attributes(params[:user])
-  #     flash[:success] = "Session updated"
-  #   else
-  #     render 'edit'
-  #   end
-  # end
   
   private
   

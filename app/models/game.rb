@@ -4,6 +4,7 @@ class Game < ActiveRecord::Base
   belongs_to :user
   belongs_to :roll
   before_create :calculate_difference, :update_hours_played, :calculate_hourly_rate
+  before_update :calculate_difference, :update_hours_played, :calculate_hourly_rate
   
   validates :user_id, presence: true
 

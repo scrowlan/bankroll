@@ -1,5 +1,5 @@
-- provide(:title, "View Game")
-%h1 Game played #{:id => @game.date_played}: 
+- provide(:title, "Game Played")
+%h1 Game played #{@game.date_played}: 
 .row
   .span6.offset3
   %table.games
@@ -11,10 +11,9 @@
         %th Difference
         %th Hourly
     %tbody
-      - current_user.games.each do |games|
-        %tr
-          %td.left= link_to games.roll.site_name.capitalize, games
-          %td= number_to_currency(games.buy_in)
-          %td= number_to_currency(games.cash_out)
-          %td= number_to_currency(games.difference)
-          %td= number_to_currency(games.amount)
+      %tr
+        %td.left= link_to @game.roll.site_name.capitalize, @game
+        %td= number_to_currency(@game.buy_in)
+        %td= number_to_currency(@game.cash_out)
+        %td= number_to_currency(@game.difference)
+        %td= number_to_currency(@game.amount)
